@@ -46,6 +46,12 @@ HEROES = [
     ("button-overview-archives.png","archives", "overview", "Overview"),
     ("button-production-overview.png","production", "overview", "Overview"),
     ("button-production-toc.png","production", "overview", "Table of Content"),
+    ("button-overview-executive.png","executive", "overview", "Overview"),
+]
+# Staff-themed dashboards overview hero (deep red, not a page-theme key)
+DEEP_RED = (192, 28, 28)
+EXTRA_HEROES = [
+    ("button-overview-dashboards.png", DEEP_RED, "dashboards", "Overview"),
 ]
 
 # ===========================================================
@@ -114,6 +120,8 @@ def gen_all():
         made.append(make("button", C[key], icon, label, fn)); 
     for fn, key, icon, label in HEROES:
         made.append(make("button", C[key], icon, label, fn))
+    for fn, color, icon, label in EXTRA_HEROES:
+        made.append(make("button", color, icon, label, fn))
     for fn, color, icon, label in SECTION:
         made.append(make("section", color, icon, label, fn, autowidth=True))
     for fn, key, icon, label in GUIDEBOOK_BTN:
